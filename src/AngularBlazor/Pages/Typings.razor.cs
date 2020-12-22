@@ -18,8 +18,8 @@ namespace AngularBlazor.Pages
         {
             var firstPerson = new Person
             {
-                FirstName = "Max",
-                LastName = "Mustermann"
+                FirstName = "Leia",
+                LastName = "Organa"
             };
 
             Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");
@@ -54,7 +54,6 @@ namespace AngularBlazor.Pages
                 propertyInfo.SetValue(_examplePerson, _fieldValue);
             }
             Console.WriteLine($"Value of {_fieldName} changed to {_fieldValue}");
-            StateHasChanged();
         }
     }
 }
