@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AngularBlazor.Pages
 {
@@ -13,6 +15,7 @@ namespace AngularBlazor.Pages
         private readonly Person _examplePerson;
         private string _fieldName = "FirstName";
         private string _fieldValue;
+        private IEnumerable<string> _fieldnames;
         
         public Typings()
         {
@@ -44,6 +47,8 @@ namespace AngularBlazor.Pages
                 FirstName = "Lando",
                 LastName = "Calrissian"
             };
+
+            _fieldnames = _examplePerson.GetType().GetProperties().ToList().Select(p => p.Name);
         }
 
         private void ChangeFieldValue()

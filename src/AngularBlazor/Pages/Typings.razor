@@ -86,8 +86,10 @@ Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");</cod
 
     <div class="input-group mb-3">
         <select class="form-control" @bind="_fieldName">
-            <option value="FirstName">First name</option>
-            <option value="LastName">Last name</option>
+            @foreach (var fieldname in _fieldnames)
+            {
+                <option value="@fieldname">@fieldname</option>
+            }
         </select>
     </div>
     <div class="input-group mb-3">
