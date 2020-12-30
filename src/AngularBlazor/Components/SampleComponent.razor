@@ -1,0 +1,13 @@
+<div class="card mb-3">
+    <div class="card-header">
+        Hello <span class="text-danger">@MyParameter</span>! <br>
+        This is my Blazor sample component.
+    </div>
+    <div class="card-body">
+        <div class="form-group mb-3">
+            <label for="parameter">Parameter input:</label>
+            <input id="parameter" class="form-control" type="text" @bind="MyParameter" placeholder="Property value">
+        </div>
+        <button class="btn btn-primary" @onclick="ButtonClick">Click me!</button>
+    </div>
+</div>
