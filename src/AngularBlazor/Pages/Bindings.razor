@@ -1,0 +1,51 @@
+@page "/Bindings"
+<h3>Bindings</h3>
+
+<h4>Use case:</h4>
+<ul>
+    <li>Simple component with an input and output parameter.</li>
+    <li>Change Text and click button.</li>
+    <li>Changed text will be used in the callback and shown outside
+         of the example component.</li>
+</ul>
+
+<h4>Angular:</h4>
+<pre class="language-html">
+    <code class="language-html">// One way binding
+@("<my-component [parameter]=\"myValue\"></my-component>")
+
+// Two way binding
+@("<my-component [(parameter)]=\"myValue\"></my-component>")
+
+// Input and output binding
+@("<my-component [parameter]=\"myValue\" (parameterChange)=\"myParameterChanged($event)\"></my-component>")
+
+// Simple display of property value
+@("<span>{{ myValue }}</span>")
+
+// Attribute binding
+@("<div [attribute.value]=\"myParameter\"></div>")
+</code>
+</pre>
+
+<h4>Blazor:</h4>
+<pre class="language-html">
+    <code class="language-html">// One way binding
+@("<MyComponent InputParameter=InputValue></MyComponent")
+
+// Input and output binding
+@("<MyComponent></MyComponent>")
+
+// Two way binding
+@("<MyComponent @bind-InputParameter=\"InputValue\"></MyComponent>")
+
+// No concrete attribute binding in Blazor
+// Only passing values to the attributes possible
+@("<MyComponent class=@myClasses></MyComponent>")
+    </code>
+</pre>
+
+<h4>In Action:</h4>
+<BindingSample @bind-MyParameter="MyParameterValue"></BindingSample>
+
+MyParameterValue: @MyParameterValue

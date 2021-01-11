@@ -1,5 +1,3 @@
-using System;
-
 namespace AngularBlazor.Pages
 {
     public partial class Components
