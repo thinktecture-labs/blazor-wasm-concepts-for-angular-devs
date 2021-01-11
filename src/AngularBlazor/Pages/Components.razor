@@ -2,21 +2,11 @@
 
 <h3>Components</h3>
 
-<h4>Overlaps/Differences:</h4>
+<h4>Use case:</h4>
 <ul>
-    <li>Both can have all in one file or seperated files</li>
-    <li>In Angular you have to declare a selector, in Blazor ComponentName = Selector</li>
-    <li>Angular has Directives and Pipes</li>
-    <li class="nested-list">
-        <ul>
-            <li>Directives: Access/Manipulate Components or HTML-Elements</li>
-            <li>Pipes: Transform data before display</li>
-        </ul> 
-    </li>
-    <li>No Directives in Blazor</li>
-    <li>Both can have scoped styles</li>
-    <li>@@Input() in Angular for input parameter, @@Output for events</li>
-    <li>[Parameter] in Blazor for Parameters and Events. Events have to be EventCallback</li>
+    <li>Create a simple component</li>
+    <li>Add input parameter to pass some text</li>
+    <li>Add output parameter that fires if a button in the component is clicked</li>
 </ul>
 
 <h4>Angular Code:</h4>
@@ -49,7 +39,7 @@ Usage:
     }
 }</code>
 </pre>
-<h4>Example:</h4>
+<h4>In Action:</h4>
 <SampleComponent MyParameter="@Text" ButtonClicked="@ButtonClicked"></SampleComponent>
 
 <div class="card mb-3">
