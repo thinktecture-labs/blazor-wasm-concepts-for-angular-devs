@@ -1,9 +1,6 @@
-<div class="card mb-3">
-    <div class="card-body">
-        <div class="form-group mb-3">
-            <label for="parameter">Input Parameter:</label>
-            <input id="parameter" class="form-control" type="text" @bind="MyParameter" placeholder="Property value">
-        </div>
-        <button class="btn btn-primary" @onclick="ButtonClick">Emit change!</button>
-    </div>
-</div>
+<MudCard>
+    <MudCardContent>
+        <MudTextField T="string"  @bind-value="MyParameter" Label="Property value"></MudTextField>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ButtonClick">Emit change!</MudButton>
+    </MudCardContent>
+</MudCard>

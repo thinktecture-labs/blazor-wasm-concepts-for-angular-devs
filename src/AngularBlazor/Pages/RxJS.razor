@@ -1,0 +1,100 @@
+@page "/RxJS"
+<MudText Typo="Typo.h3">RxJS</MudText>
+<MudTabs Elevation="1">
+    <MudTabPanel Text="Use case">
+        <MudList>
+            <MudListItem Icon="@Icons.Material.Bookmark">Simple component that loads all data from a url</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Load all Star Wars Films from <a href="https://swapi.dev/api/films/" target="_blank">https://swapi.dev/api/films/</a></MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Show all items in a list</MudListItem>
+        </MudList>
+    </MudTabPanel>
+    <MudTabPanel Text="Angular">
+        <MudText Typo="Typo.h4">Code behind</MudText>
+        <pre class="language-typescript">
+<code class="language-typescript">interface Movie {
+    title: string;
+    episode: number;
+}
+
+interface MovieResult {
+    results: Movie[];
+}
+
+class MyComponent {
+    movies: Movie[];
+    @("movies$: Observable<Movie[]>;");
+
+    private readonly url = 'https://swapi.dev/api/films/';
+
+    constructor(private readonly httpClient: HttpClient) {
+        // Use subscribe to asign list
+        @("this.httpClient.get<MovieResult>(this.url)");
+            .subscribe(result => this.movies = result.Results);
+
+        // Only assign observable and use async pipe
+        this.movies$ =  @("this.httpClient.get<MovieResult>(this.url)");
+            .pipe(map(result => result.results));
+    }
+}
+        </code>
+        </pre>
+        <MudText Typo="Typo.h4">Template</MudText>
+        <pre class="language-html">
+            <code class="language-html">@("<ul>")
+    // Using movies property
+    @("<li *ngFor\"let movie of movies\">Episode {{movie.episode}} - {{movie.title}}</li>")
+
+    // Using async pipe
+    @("<li *ngFor\"let movie of movies$ | async\">Episode {{movie.episode}} - {{movie.title}}</li>")
+@("</ul>")
+</code>
+        </pre>
+
+    </MudTabPanel>
+    <MudTabPanel Text="Blazor">
+        <MudText Typo="Typo.h4">Code behind</MudText>
+        <pre class="language-typescript">
+            <code class="language-typescript">public class MovieResult
+{
+  @("public List<Movie> Results { get; set; }");
+}
+
+public class Movie
+{
+  public string Title { get; set; }
+  [JsonPropertyName("episode_id")] public int Episode { get; set; }
+  [JsonPropertyName("release_date")] public DateTime ReleaseDate { get; set; }
+}
+
+public partial class MyComponent 
+{
+    [Inject] private HttpClient { get; set; }
+    @("private List<Movie> Movies { get; set; }")
+    
+    private async void LoadAllMovies()
+    {
+        @("var result = await _httpClient.GetFromJsonAsync<MovieResult>(\"https://swapi.dev/api/films/\");")
+        Movies = result?.Results;
+        StateHasChanged();
+    }
+}
+            
+            </code>
+        </pre>
+
+        <MudText Typo="Typo.h4">Template</MudText>
+        <pre class="language-html">
+            <code class="language-html">@("<ul>")
+    @("@foreach (var movie in Movies.OrderBy(m => m.Episode))")
+    {
+        @("<li>Episode @movie.Episode - @movie.Title released in @movie.ReleaseDate.ToShortDateString()</li>")
+    }
+@("</ul>")
+        
+            </code>
+        </pre>
+    </MudTabPanel>
+    <MudTabPanel Text="In action">
+        <StarWarsList></StarWarsList>
+    </MudTabPanel>
+</MudTabs>

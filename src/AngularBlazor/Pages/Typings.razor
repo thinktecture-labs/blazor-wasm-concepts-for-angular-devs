@@ -1,16 +1,17 @@
 @page "/typings"
 
-<h3>Typings</h3>
+<MudText Typo="Typo.h3">Typings</MudText>
+<MudTabs Elevation="1">
+    <MudTabPanel Text="Use case">
+        <MudList>
+            <MudListItem Icon="@Icons.Material.Bookmark">Define simple a simple class or interface</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Create an object that is an instance of this class/interface</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Get/set properties of this object by their propertyname</MudListItem>
+        </MudList>
+    </MudTabPanel>
+    <MudTabPanel Text="Angular">
 
-<h4>Use case:</h4>
-<ul>
-    <li>Define simple a simple class or interface</li>
-    <li>Create an object that is an instance of this class/interface</li>
-    <li>Get/set properties of this object by their propertyname</li>
-</ul>
-
-<h4>Angular code:</h4>
-<pre class="language-typescript">
+        <pre class="language-typescript">
    <code class="language-typescript">interface Person {
    firstName: string;
    lastName: string;
@@ -30,11 +31,10 @@ console.log(`Hello ${person.firstName} ${person.lastName}`);
 secondPerson['firstName'] = 'Han';
 secondPerson['lastName'] = 'Solo';</code>
 </pre>
-
-<h4>Blazor code:</h4>
-
-<pre class="language-csharp">
-<code class="language-csharp">class Person
+    </MudTabPanel>
+    <MudTabPanel Text="Blazor">
+        <pre class="language-csharp">
+        <code class="language-csharp">class Person
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -67,34 +67,32 @@ firstPerson.GetType().GetProperty("FirstName")?.SetValue(firstPerson, "Han");
 firstPerson.GetType().GetProperty("LastName")?.SetValue(firstPerson, "Solo");
 
 Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");</code>
-</pre>
-
-
-<h4>In Action:</h4>
-
-<div>
-    <div class="card mb-3">
-        <div class="card-header">
-            Result
+        </pre>
+    </MudTabPanel>
+    <MudTabPanel Text="In Action">
+        <div class="card mb-3">
+            <div class="card-header">
+                Result
+            </div>
+            <div class="card-body">
+                <b>Hello <span class="text-primary">@_examplePerson.FirstName</span> <span class="text-info">@_examplePerson.LastName</span></b>
+            </div>
         </div>
-        <div class="card-body">
-            <b>Hello <span class="text-primary">@_examplePerson.FirstName</span> <span class="text-info">@_examplePerson.LastName</span></b>
+
+
+        <div class="input-group mb-3">
+            <select class="form-control" @bind="_fieldName">
+                @foreach (var fieldname in _fieldnames)
+                {
+                    <option value="@fieldname">@fieldname</option>
+                }
+            </select>
         </div>
-    </div>
-
-
-    <div class="input-group mb-3">
-        <select class="form-control" @bind="_fieldName">
-            @foreach (var fieldname in _fieldnames)
-            {
-                <option value="@fieldname">@fieldname</option>
-            }
-        </select>
-    </div>
-    <div class="input-group mb-3">
-        <input class="form-control" type="text" @bind="_fieldValue" placeholder="Property value">
-    </div>
-    <div class="input-group">
-        <button class="btn btn-primary" @onclick="ChangeFieldValue">Change Field Value</button>
-    </div>
-</div>
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" @bind="_fieldValue" placeholder="Property value">
+        </div>
+        <div class="input-group">
+            <button class="btn btn-primary" @onclick="ChangeFieldValue">Change Field Value</button>
+        </div>
+    </MudTabPanel>
+</MudTabs>

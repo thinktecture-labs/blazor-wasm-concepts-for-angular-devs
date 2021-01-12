@@ -1,17 +1,19 @@
 @page "/Bindings"
-<h3>Bindings</h3>
-
-<h4>Use case:</h4>
-<ul>
-    <li>Simple component with an input and output parameter.</li>
-    <li>Change Text and click button.</li>
-    <li>Changed text will be used in the callback and shown outside
-         of the example component.</li>
-</ul>
-
-<h4>Angular:</h4>
-<pre class="language-html">
-    <code class="language-html">// One way binding
+<MudText Typo="Typo.h3">Bindings</MudText>
+<MudTabs Elevation="1">
+    <MudTabPanel Text="Use case">
+        <MudList>
+            <MudListItem Icon="@Icons.Material.Bookmark">Simple component with an input and output parameter.</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Change Text and click button.</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">
+                Changed text will be used in the callback and shown outside
+                of the example component.
+            </MudListItem>
+        </MudList>
+    </MudTabPanel>
+    <MudTabPanel Text="Angular">
+        <pre class="language-html">
+            <code class="language-html">// One way binding
 @("<my-component [parameter]=\"myValue\"></my-component>")
 
 // Two way binding
@@ -25,12 +27,12 @@
 
 // Attribute binding
 @("<div [attribute.value]=\"myParameter\"></div>")
-</code>
-</pre>
-
-<h4>Blazor:</h4>
-<pre class="language-html">
-    <code class="language-html">// One way binding
+        </code>
+        </pre>
+    </MudTabPanel>
+    <MudTabPanel Text="Blazor">
+        <pre class="language-html">
+            <code class="language-html">// One way binding
 @("<MyComponent InputParameter=InputValue></MyComponent")
 
 // Input and output binding
@@ -42,10 +44,12 @@
 // No concrete attribute binding in Blazor
 // Only passing values to the attributes possible
 @("<MyComponent class=@myClasses></MyComponent>")
-    </code>
-</pre>
+            </code>
+        </pre>
+    </MudTabPanel>
+    <MudTabPanel Text="In Action">
+        <BindingSample @bind-MyParameter="MyParameterValue"></BindingSample>
 
-<h4>In Action:</h4>
-<BindingSample @bind-MyParameter="MyParameterValue"></BindingSample>
-
-MyParameterValue: @MyParameterValue
+        MyParameterValue: @MyParameterValue
+    </MudTabPanel>
+</MudTabs>

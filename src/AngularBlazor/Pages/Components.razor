@@ -1,17 +1,17 @@
 @page "/Components"
 
-<h3>Components</h3>
-
-<h4>Use case:</h4>
-<ul>
-    <li>Create a simple component</li>
-    <li>Add input parameter to pass some text</li>
-    <li>Add output parameter that fires if a button in the component is clicked</li>
-</ul>
-
-<h4>Angular Code:</h4>
-<pre class="language-typescript">
-    <code class="language-typescript">@@Component(
+<MudText Typo="Typo.h3">Components</MudText>
+<MudTabs Elevation="1">
+    <MudTabPanel Text="Use case">
+        <MudList>
+            <MudListItem Icon="@Icons.Material.Bookmark">Create a simple component</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Add input parameter to pass some text</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Add output parameter that fires if a button in the component is clicked</MudListItem>
+        </MudList>
+    </MudTabPanel>
+    <MudTabPanel Text="Angular">
+        <pre class="language-typescript">
+            <code class="language-typescript">@@Component(
 {
     selector: 'my-component',
     template: '@("<h1>This is my Angular component</h1><button (click)=\"buttonClick()\">Click me!</button")'
@@ -28,22 +28,26 @@ export class AngularComponent {
 
 Usage:
 @("<my-component myParameter=\"Hello World!\"></my-component>")</code>
-</pre>
-<h4>Blazor Code:</h4>
-<pre class="language-csharp">
-    <code class="language-csharp">@("<h1>This is a Blazor test component</h1>")
+        </pre>
+    </MudTabPanel>
+    <MudTabPanel Text="Blazor">
+        <pre class="language-csharp">
+            <code class="language-csharp">@("<h1>This is a Blazor test component</h1>")
 @("<button @onclick=ButtonClick>Click me!</button>")
 @@code {
     private void ButtonClick() {
         Console.WriteLine(\"Button clicked!\");
     }
 }</code>
-</pre>
-<h4>In Action:</h4>
-<SampleComponent MyParameter="@Text" ButtonClicked="@ButtonClicked"></SampleComponent>
+        </pre>
+    </MudTabPanel>
+    <MudTabPanel Text="In Action">
+        <SampleComponent MyParameter="@Text" ButtonClicked="@ButtonClicked"></SampleComponent>
 
-<div class="card mb-3">
-    <div class="card-body">
-        Button inside of sample component clicked <span class="text-success">@Counter</span> times.
-    </div>
-</div>
+        <div class="card mb-3">
+            <div class="card-body">
+                Button inside of sample component clicked <span class="text-success">@Counter</span> times.
+            </div>
+        </div>
+    </MudTabPanel>
+</MudTabs>
