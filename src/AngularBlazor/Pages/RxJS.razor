@@ -1,17 +1,10 @@
 @page "/RxJS"
 <MudText Typo="Typo.h3">RxJS</MudText>
 <MudTabs Elevation="1">
-    <MudTabPanel Text="Use case">
-        <MudList>
-            <MudListItem Icon="@Icons.Material.Bookmark">Simple component that loads all data from a url</MudListItem>
-            <MudListItem Icon="@Icons.Material.Bookmark">Load all Star Wars Films from <MudLink Href="https://swapi.dev/api/films/" Target="_blank">https://swapi.dev/api/films/</MudLink></MudListItem>
-            <MudListItem Icon="@Icons.Material.Bookmark">Show all items in a list</MudListItem>
-        </MudList>
-    </MudTabPanel>
-    <MudTabPanel Text="Angular">
-        <MudText Typo="Typo.h4">Code behind</MudText>
-        <pre class="language-typescript">
-<code class="language-typescript">interface Movie {
+    <MudTabPanel Text="Angular sample">
+            <MudText Typo="Typo.h4">Code behind</MudText>
+            <pre class="language-typescript">
+    <code class="language-typescript">interface Movie {
     title: string;
     episode: number;
 }
@@ -35,26 +28,24 @@ class MyComponent {
         this.movies$ =  @("this.httpClient.get<MovieResult>(this.url)");
             .pipe(map(result => result.results));
     }
-}
-        </code>
-        </pre>
-        <MudText Typo="Typo.h4">Template</MudText>
-        <pre class="language-html">
-            <code class="language-html">@("<ul>")
-    // Using movies property
-    @("<li *ngFor\"let movie of movies\">Episode {{movie.episode}} - {{movie.title}}</li>")
+}</code>
+            </pre>
+            <MudText Typo="Typo.h4">Template</MudText>
+            <pre class="language-html">
+                <code class="language-html">@("<ul>")
+// Using movies property
+@("<li *ngFor\"let movie of movies\">Episode {{movie.episode}} - {{movie.title}}</li>")
 
-    // Using async pipe
-    @("<li *ngFor\"let movie of movies$ | async\">Episode {{movie.episode}} - {{movie.title}}</li>")
-@("</ul>")
-</code>
-        </pre>
-
-    </MudTabPanel>
-    <MudTabPanel Text="Blazor">
-        <MudText Typo="Typo.h4">Code behind</MudText>
-        <pre class="language-typescript">
-            <code class="language-typescript">public class MovieResult
+// Using async pipe
+@("<li *ngFor\"let movie of movies$ | async\">Episode {{movie.episode}} - {{movie.title}}</li>")
+@("</ul>")</code>
+            </pre>
+    
+        </MudTabPanel>
+        <MudTabPanel Text="Blazor sample">
+            <MudText Typo="Typo.h4">Code behind</MudText>
+            <pre class="language-typescript">
+                <code class="language-typescript">public class MovieResult
 {
   @("public List<Movie> Results { get; set; }");
 }
@@ -77,24 +68,28 @@ public partial class MyComponent
         Movies = result?.Results;
         StateHasChanged();
     }
+}</code>
+            </pre>
+    
+            <MudText Typo="Typo.h4">Template</MudText>
+            <pre class="language-html">
+                <code class="language-html">@("<ul>")
+@("@foreach (var movie in Movies.OrderBy(m => m.Episode))")
+{
+    @("<li>Episode @movie.Episode - @movie.Title released in @movie.ReleaseDate.ToShortDateString()</li>")
 }
-            
-            </code>
-        </pre>
-
-        <MudText Typo="Typo.h4">Template</MudText>
-        <pre class="language-html">
-            <code class="language-html">@("<ul>")
-    @("@foreach (var movie in Movies.OrderBy(m => m.Episode))")
-    {
-        @("<li>Episode @movie.Episode - @movie.Title released in @movie.ReleaseDate.ToShortDateString()</li>")
-    }
-@("</ul>")
-        
-            </code>
-        </pre>
+@("</ul>")</code>
+            </pre>
+        </MudTabPanel>
+    <MudTabPanel Text="Use case">
+        <MudList>
+            <MudListItem Icon="@Icons.Material.Bookmark">Simple component that loads all data from a url</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Load all Star Wars Films from <MudLink Href="https://swapi.dev/api/films/" Target="_blank">https://swapi.dev/api/films/</MudLink></MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Show all items in a list</MudListItem>
+        </MudList>
     </MudTabPanel>
-    <MudTabPanel Text="In action">
+    <MudTabPanel Text="Use case in action">
+        <MudAlert Severity="Severity.Info">This example is written in Blazor!</MudAlert>
         <MudCard>
             <MudCardContent>
                 <StarWarsList></StarWarsList>

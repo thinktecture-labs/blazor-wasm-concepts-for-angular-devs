@@ -2,14 +2,7 @@
 
 <MudText Typo="Typo.h3">Typings</MudText>
 <MudTabs Elevation="1">
-    <MudTabPanel Text="Use case">
-        <MudList>
-            <MudListItem Icon="@Icons.Material.Bookmark">Define simple a simple class or interface</MudListItem>
-            <MudListItem Icon="@Icons.Material.Bookmark">Create an object that is an instance of this class/interface</MudListItem>
-            <MudListItem Icon="@Icons.Material.Bookmark">Get/set properties of this object by their propertyname</MudListItem>
-        </MudList>
-    </MudTabPanel>
-    <MudTabPanel Text="Angular">
+    <MudTabPanel Text="Angular sample">
 
         <pre class="language-typescript">
    <code class="language-typescript">interface Person {
@@ -17,22 +10,27 @@
    lastName: string;
 }
 
-// TypeScript code
-
 // With typing
 const person:Person = { firstName: 'Leia', lastName: 'Organa' };
+
+// Ouput = Hello Leia Organa
 console.log(`Hello ${person.firstName} ${person.lastName}`);
 
 // Without typing - automatically declared as any
 const secondPerson = { firstName: 'Luke', lastName: 'Skywalker' };
-console.log(`Hello ${person.firstName} ${person.lastName}`);
+
+// Ouput = Hello Luke Skywalker
+console.log(`Hello ${secondPerson.firstName} ${secondPerson.lastName}`);
 
 // alternative property access especially when your are doing generic stuff
 secondPerson['firstName'] = 'Han';
 secondPerson['lastName'] = 'Solo';</code>
+
+// Ouput = Hello Han Solo
+console.log(`Hello ${secondPerson.firstName} ${secondPerson.lastName}`);
 </pre>
     </MudTabPanel>
-    <MudTabPanel Text="Blazor">
+    <MudTabPanel Text="Blazor sample">
         <pre class="language-csharp">
         <code class="language-csharp">class Person
 {
@@ -46,16 +44,8 @@ var firstPerson = new Person
     LastName = "Organa"
 };
 
+// Ouput = Hello Leia Organa
 Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");
-
-dynamic secondPerson = new {irstName = "Luke", LastName = "Skywalker"};
-Console.WriteLine($"Hello {secondPerson.FirstName} {secondPerson.LastName}");
-
-// NOT WORKING
-secondPerson["FirstName"] = "Han";
-secondPerson["LastName"] = "Solo";
-
-Console.WriteLine($"Hello {secondPerson.FirstName} {secondPerson.LastName}");
 
 // Get property value
 // Result is object and has to be casted to specific type
@@ -66,10 +56,30 @@ var propertyValue = firstPerson.GetType().GetProperty("FirstName")?.GetValue();
 firstPerson.GetType().GetProperty("FirstName")?.SetValue(firstPerson, "Han");
 firstPerson.GetType().GetProperty("LastName")?.SetValue(firstPerson, "Solo");
 
-Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");</code>
-        </pre>
+// Ouput = Hello Han Solo
+Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");
+
+// Using ExpandoObject to access properties dynamically
+dynamc firstPerson = new ExpandoObject();
+firstPerson.FirstName = "Leia";
+firstPersion.LastName = "Organa";
+
+@("((IDictionary<String, Object>) data)[\"FirstName\"] = \"Han\";")
+@("((IDictionary<String, Object>) data)[\"LastName\"] = \"Solo\";")
+
+// Ouput = Hello Han Solo
+Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");
+</code></pre>
     </MudTabPanel>
-    <MudTabPanel Text="In Action">
+    <MudTabPanel Text="Use case">
+            <MudList>
+                <MudListItem Icon="@Icons.Material.Bookmark">Define simple a simple class or interface</MudListItem>
+                <MudListItem Icon="@Icons.Material.Bookmark">Create an object that is an instance of this class/interface</MudListItem>
+                <MudListItem Icon="@Icons.Material.Bookmark">Get/set properties of this object by their propertyname</MudListItem>
+            </MudList>
+        </MudTabPanel>
+    <MudTabPanel Text="Use case in action">
+        <MudAlert Severity="Severity.Info">This example is written in Blazor!</MudAlert>
         <MudCard>
             <MudCardHeader>
                 <CardHeaderContent>
