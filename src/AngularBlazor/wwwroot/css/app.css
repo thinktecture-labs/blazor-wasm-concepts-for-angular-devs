@@ -15,6 +15,7 @@
     align-items: center;
 }
 
-.mud-paper {
+.mud-paper, 
+.mud-alert {
     margin-bottom: 10px;
 }

@@ -2,14 +2,8 @@
 
 <MudText Typo="Typo.h3">Components</MudText>
 <MudTabs Elevation="1">
-    <MudTabPanel Text="Use case">
-        <MudList>
-            <MudListItem Icon="@Icons.Material.Bookmark">Create a simple component</MudListItem>
-            <MudListItem Icon="@Icons.Material.Bookmark">Add input parameter to pass some text</MudListItem>
-            <MudListItem Icon="@Icons.Material.Bookmark">Add output parameter that fires if a button in the component is clicked</MudListItem>
-        </MudList>
-    </MudTabPanel>
-    <MudTabPanel Text="Angular">
+   
+    <MudTabPanel Text="Angular Sample">
         <pre class="language-typescript">
             <code class="language-typescript">@@Component(
 {
@@ -30,18 +24,35 @@ Usage:
 @("<my-component myParameter=\"Hello World!\"></my-component>")</code>
         </pre>
     </MudTabPanel>
-    <MudTabPanel Text="Blazor">
+    <MudTabPanel Text="Blazor Sample">
         <pre class="language-csharp">
-            <code class="language-csharp">@("<h1>This is a Blazor test component</h1>")
+            <code class="language-csharp">// Filename: MyComponent.razor
+
+@("<h1>This is a Blazor test component</h1>")
 @("<button @onclick=ButtonClick>Click me!</button>")
 @@code {
+    [Parameter]
+    public string MyParameter { get; set; }
+
     private void ButtonClick() {
         Console.WriteLine(\"Button clicked!\");
     }
-}</code>
+}
+
+Usage:
+@("<MyComponent MyParameter=\"Hello World!\"></MyComponent>")
+</code>
         </pre>
     </MudTabPanel>
-    <MudTabPanel Text="In Action">
+     <MudTabPanel Text="Use case">
+            <MudList>
+                <MudListItem Icon="@Icons.Material.Bookmark">Create a simple component</MudListItem>
+                <MudListItem Icon="@Icons.Material.Bookmark">Add input parameter to pass some text</MudListItem>
+                <MudListItem Icon="@Icons.Material.Bookmark">Add output parameter that fires if a button in the component is clicked</MudListItem>
+            </MudList>
+        </MudTabPanel>
+    <MudTabPanel Text="Use case in Action">
+        <MudAlert Severity="Severity.Info">This example is written in Blazor!</MudAlert>
         <SampleComponent MyParameter="@Text" ButtonClicked="@ButtonClicked"></SampleComponent>
 
         <MudCard>
