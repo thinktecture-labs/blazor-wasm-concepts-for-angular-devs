@@ -50,6 +50,10 @@
     <MudTabPanel Text="In Action">
         <BindingSample @bind-MyParameter="MyParameterValue"></BindingSample>
 
-        MyParameterValue: @MyParameterValue
+        <MudCard>
+            <MudCardContent>
+                <MudText>MyParameterValue: <i>@MyParameterValue</i></MudText>
+            </MudCardContent>
+        </MudCard>
     </MudTabPanel>
 </MudTabs>

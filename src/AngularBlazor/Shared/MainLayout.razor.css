@@ -1,3 +1,9 @@
  .container {
      padding: 1rem;
  }
+ 
+ .logo {
+     width: 100px;
+     height: 100px;
+ }
+ 

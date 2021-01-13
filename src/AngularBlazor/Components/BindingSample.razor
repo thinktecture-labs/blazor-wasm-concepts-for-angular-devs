@@ -1,6 +1,12 @@
 <MudCard>
     <MudCardContent>
-        <MudTextField T="string"  @bind-value="MyParameter" Label="Property value"></MudTextField>
-        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ButtonClick">Emit change!</MudButton>
+        <MudGrid>
+            <MudItem xs="6">
+                <MudTextField T="string" @bind-value="MyParameter" Label="Property value"></MudTextField>
+            </MudItem>
+            <MudItem Class="button-grid-cell">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ButtonClick">Emit change!</MudButton>
+            </MudItem>
+        </MudGrid>
     </MudCardContent>
 </MudCard>

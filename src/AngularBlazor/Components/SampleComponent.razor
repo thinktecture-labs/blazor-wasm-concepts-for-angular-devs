@@ -1,13 +1,18 @@
-<div class="card mb-3">
-    <div class="card-header">
-        Hello <span class="text-danger">@MyParameter</span>! <br>
-        This is my Blazor sample component.
-    </div>
-    <div class="card-body">
-        <div class="form-group mb-3">
-            <label for="parameter">Parameter input:</label>
-            <input id="parameter" class="form-control" type="text" @bind="MyParameter" placeholder="Property value">
-        </div>
-        <button class="btn btn-primary" @onclick="ButtonClick">Click me!</button>
-    </div>
-</div>
+<MudCard>
+    <MudCardHeader>
+        <CardHeaderContent>
+            Hello <MudText Inline="true" Color="Color.Warning">@MyParameter</MudText>!<br>
+            This is my Blazor sample component.
+        </CardHeaderContent>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="4">
+                <MudTextField T="string" @bind-value="MyParameter" Label="Parameter input"></MudTextField>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="4" Class="button-grid-cell">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ButtonClick">Click me!</MudButton>
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+</MudCard>

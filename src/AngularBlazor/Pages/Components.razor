@@ -44,10 +44,10 @@ Usage:
     <MudTabPanel Text="In Action">
         <SampleComponent MyParameter="@Text" ButtonClicked="@ButtonClicked"></SampleComponent>
 
-        <div class="card mb-3">
-            <div class="card-body">
-                Button inside of sample component clicked <span class="text-success">@Counter</span> times.
-            </div>
-        </div>
+        <MudCard>
+            <MudCardContent>
+                <MudText>Button inside of sample component clicked <MudText Color="Color.Success">@Counter</MudText> times.</MudText>
+            </MudCardContent>
+        </MudCard>
     </MudTabPanel>
 </MudTabs>

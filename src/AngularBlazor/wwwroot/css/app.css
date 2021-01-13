@@ -3,5 +3,18 @@
 }
 
 .mud-tabs-panels {
-    margin: 1.5rem;   
+    margin: 1.5rem;
+}
+
+.logo-container {
+    justify-content: center;
+}
+
+.button-grid-cell {
+    display: flex;
+    align-items: center;
+}
+
+.mud-paper {
+    margin-bottom: 10px;
 }

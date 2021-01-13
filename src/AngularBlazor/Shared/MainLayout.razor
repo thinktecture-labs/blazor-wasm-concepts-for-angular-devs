@@ -1,6 +1,6 @@
 @inherits LayoutComponentBase
 
-<MudThemeProvider/>
+<MudThemeProvider Theme="_customTheme"/>
 
 <MudLayout>
     <MudAppBar Elevation="1">
@@ -9,8 +9,8 @@
         <MudIconButton Icon="@Icons.Material.MoreVert" Color="Color.Inherit" Edge="Edge.End"/>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="2">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h5" Class="mt-1">Blazor for Angular Developers</MudText>
+        <MudDrawerHeader Class="logo-container">
+            <img class="logo" src="images/blazor.png" alt="Blazor Wasm concepts for Angular developers" >
         </MudDrawerHeader>
         <NavMenu/>
     </MudDrawer>

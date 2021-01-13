@@ -70,29 +70,38 @@ Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");</cod
         </pre>
     </MudTabPanel>
     <MudTabPanel Text="In Action">
-        <div class="card mb-3">
-            <div class="card-header">
-                Result
-            </div>
-            <div class="card-body">
-                <b>Hello <span class="text-primary">@_examplePerson.FirstName</span> <span class="text-info">@_examplePerson.LastName</span></b>
-            </div>
-        </div>
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    Result
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Inline="true">Hello </MudText>
+                <MudText Inline="true" Color="Color.Primary">@_examplePerson.FirstName</MudText> (Field FirstName)
+                <MudText Inline="true" Color="Color.Info">@_examplePerson.LastName</MudText> (Field LastName)
+            </MudCardContent>
+        </MudCard>
 
-
-        <div class="input-group mb-3">
-            <select class="form-control" @bind="_fieldName">
-                @foreach (var fieldname in _fieldnames)
-                {
-                    <option value="@fieldname">@fieldname</option>
-                }
-            </select>
-        </div>
-        <div class="input-group mb-3">
-            <input class="form-control" type="text" @bind="_fieldValue" placeholder="Property value">
-        </div>
-        <div class="input-group">
-            <button class="btn btn-primary" @onclick="ChangeFieldValue">Change Field Value</button>
-        </div>
+        <MudCard>
+            <MudCardContent>
+                <MudGrid>
+                    <MudItem xs="6">
+                        <MudSelect T="string" Label="Field name" @bind-Value="_fieldName">
+                            @foreach (var fieldname in _fieldnames)
+                            {
+                                <MudSelectItem Value="@fieldname">@fieldname</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudTextField T="string" @bind-value="_fieldValue" Label="Field value"></MudTextField>
+                    </MudItem>
+                    <MudItem>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ChangeFieldValue">Change field value</MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudCardContent>
+        </MudCard>
     </MudTabPanel>
 </MudTabs>
