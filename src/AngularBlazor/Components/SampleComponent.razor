@@ -1,15 +1,11 @@
 <MudCard>
     <MudCardHeader>
         <CardHeaderContent>
-            Hello <MudText Inline="true" Color="Color.Warning">@MyParameter</MudText>!<br>
-            This is my Blazor sample component.
+            <MudText>Hello <MudText Inline="true" Color="Color.Warning">@MyParameter</MudText>!</MudText>
         </CardHeaderContent>
     </MudCardHeader>
     <MudCardContent>
         <MudGrid>
-            <MudItem xs="12" sm="6" md="4">
-                <MudTextField T="string" @bind-value="MyParameter" Label="Parameter input"></MudTextField>
-            </MudItem>
             <MudItem xs="12" sm="6" md="4" Class="button-grid-cell">
                 <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ButtonClick">Click me!</MudButton>
             </MudItem>

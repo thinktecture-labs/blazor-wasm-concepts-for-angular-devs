@@ -2,7 +2,7 @@
 
 <MudText Typo="Typo.h3">Components</MudText>
 <MudTabs Elevation="1">
-   
+
     <MudTabPanel Text="Angular sample">
         <pre class="language-typescript">
             <code class="language-typescript">@@Component(
@@ -30,6 +30,7 @@ Usage:
 
 @("<h1>This is a Blazor test component</h1>")
 @("<button @onclick=ButtonClick>Click me!</button>")
+
 @@code {
     [Parameter]
     public string MyParameter { get; set; }
@@ -44,20 +45,29 @@ Usage:
 </code>
         </pre>
     </MudTabPanel>
-     <MudTabPanel Text="Use case">
-            <MudList>
-                <MudListItem Icon="@Icons.Material.Bookmark">Create a simple component</MudListItem>
-                <MudListItem Icon="@Icons.Material.Bookmark">Add input parameter to pass some text</MudListItem>
-                <MudListItem Icon="@Icons.Material.Bookmark">Add output parameter that fires if a button in the component is clicked</MudListItem>
-            </MudList>
-        </MudTabPanel>
+    <MudTabPanel Text="Use case">
+        <MudList>
+            <MudListItem Icon="@Icons.Material.Bookmark">Create a simple component</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Add input parameter to pass some text</MudListItem>
+            <MudListItem Icon="@Icons.Material.Bookmark">Add output parameter that fires if a button in the component is clicked</MudListItem>
+        </MudList>
+    </MudTabPanel>
     <MudTabPanel Text="Use case in action">
         <MudAlert Severity="Severity.Info">This example is written in Blazor!</MudAlert>
+
         <SampleComponent MyParameter="@Text" ButtonClicked="@ButtonClicked"></SampleComponent>
 
         <MudCard>
             <MudCardContent>
-                <MudText>Button inside of sample component clicked <MudText Color="Color.Success">@Counter</MudText> times.</MudText>
+                <MudGrid>
+                    <MudItem xs="12" sm="7" md="7">
+                        <MudTextField T="string" @bind-value="Text" Label="Parameter input"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="12" sm="7" md="7">
+                        <MudText>Button inside of sample component clicked <MudText Inline="true" Color="Color.Success">@Counter</MudText> times.</MudText>
+                    </MudItem>
+                </MudGrid>
+
             </MudCardContent>
         </MudCard>
     </MudTabPanel>

@@ -7,10 +7,10 @@ namespace AngularBlazor.Components
     {
         [Parameter] public string MyParameter { get; set; }
 
-        [Parameter] public EventCallback<string> ButtonClicked { get; set; }
+        [Parameter] public EventCallback ButtonClicked { get; set; }
         private void ButtonClick()
         {
-            ButtonClicked.InvokeAsync(MyParameter);
+            ButtonClicked.InvokeAsync();
         }
     }
 }

@@ -5,9 +5,8 @@ namespace AngularBlazor.Pages
         private string Text { get; set; } = "World";
         private int Counter { get; set; } = 0;
 
-        private void ButtonClicked(string value)
+        private void ButtonClicked()
         {
-            Text = value;
             Counter++;
         }
     }
