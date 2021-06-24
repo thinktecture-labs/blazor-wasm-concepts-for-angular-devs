@@ -11,7 +11,7 @@ namespace AngularBlazor.Components
         public EventCallback<string> MyParameterChanged { get; set; }
 
         private void ButtonClick()
-        {
+        {         
             MyParameterChanged.InvokeAsync(MyParameter);
         }
     }

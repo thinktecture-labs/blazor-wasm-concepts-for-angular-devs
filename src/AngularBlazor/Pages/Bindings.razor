@@ -4,37 +4,41 @@
     <MudTabPanel Text="Angular sample">
             <pre class="language-html">
                 <code class="language-html">// One way binding
-@("<my-component [parameter]=\"myValue\"></my-component>")
-
-// Two way binding
-@("<my-component [(parameter)]=\"myValue\"></my-component>")
+@("<my-component [parameter]=\"myProperty\"></my-component>")
 
 // Input and output binding
-@("<my-component [parameter]=\"myValue\" (parameterChange)=\"myParameterChanged($event)\"></my-component>")
+@("<my-component [parameter]=\"myProperty\" (parameterChange)=\"myParameterChanged($event)\"></my-component>")
 
-// Simple display of property value
-@("<span>{{ myValue }}</span>")
+// Two way binding
+@("<my-component [(parameter)]=\"myProperty\"></my-component>")
+
+// Expression binding
+@("<span>{{ myProperty }}</span>")
 
 // Attribute binding
-@("<div [attribute.value]=\"myParameter\"></div>")
+@("<div [class.test]=\"myProperty\"></div>")
             </code>
             </pre>
         </MudTabPanel>
         <MudTabPanel Text="Blazor sample">
             <pre class="language-html">
                 <code class="language-html">// One way binding
-@("<MyComponent InputParameter=InputValue></MyComponent")
-
-// Two way binding
-@("<MyComponent @bind-InputParameter=\"InputValue\"></MyComponent>")
-
+@("<MyComponent InputParameter=\"InputValue\"></MyComponent")
 
 // Input and output binding
 @("<MyComponent InputParameter=\"InputValue\" ParameterChange=\"MyParameterChanged\"></MyComponent>")
 
-// No concrete attribute binding in Blazor
-// Only passing values to the attributes possible
-@("<MyComponent class=\"@myClasses\"></MyComponent>")
+// Two way binding
+@("<MyComponent @bind-InputParameter=\"InputValue\"></MyComponent>")
+
+// Expression binding
+@("<span>@MyValue</span>")
+
+// Expression binding to attribute
+@("<MyComponent class=\"@MyClasses\"></MyComponent>")
+
+@("// Binding attributes with the @attributes directive")
+@("<div @attributes=\"MyAttributes\"></div>")
                 </code>
             </pre>
         </MudTabPanel>
@@ -55,7 +59,7 @@
 
         <MudCard>
             <MudCardContent>
-                <MudText>MyParameterValue: <i>@MyParameterValue</i></MudText>
+                <MudText>MyParameterValue: <MudText Inline="true" Color="Color.Primary" Style="font-weight: bold">@MyParameterValue</MudText></MudText>
             </MudCardContent>
         </MudCard>
     </MudTabPanel>
