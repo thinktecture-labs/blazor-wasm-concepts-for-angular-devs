@@ -2,7 +2,7 @@
 <MudText Typo="Typo.h3">Bindings</MudText>
 <MudTabs Elevation="1">
     <MudTabPanel Text="Angular sample">
-            <pre class="language-html">
+        <pre class="language-html">
                 <code class="language-html">// One way binding
 @("<my-component [parameter]=\"myProperty\"></my-component>")
 
@@ -19,9 +19,9 @@
 @("<div [class.test]=\"myProperty\"></div>")
             </code>
             </pre>
-        </MudTabPanel>
-        <MudTabPanel Text="Blazor sample">
-            <pre class="language-html">
+    </MudTabPanel>
+    <MudTabPanel Text="Blazor sample">
+        <pre class="language-html">
                 <code class="language-html">// One way binding
 @("<MyComponent InputParameter=\"InputValue\"></MyComponent")
 
@@ -41,7 +41,7 @@
 @("<div @attributes=\"MyAttributes\"></div>")
                 </code>
             </pre>
-        </MudTabPanel>
+    </MudTabPanel>
     <MudTabPanel Text="Use case">
         <MudList>
             <MudListItem Icon="@Icons.Material.Bookmark">Simple component with an input and output parameter.</MudListItem>
@@ -52,7 +52,6 @@
             </MudListItem>
         </MudList>
     </MudTabPanel>
-
     <MudTabPanel Text="Use case in action">
         <MudAlert Severity="Severity.Info">This example is written in Blazor!</MudAlert>
         <BindingSample @bind-MyParameter="MyParameterValue"></BindingSample>
