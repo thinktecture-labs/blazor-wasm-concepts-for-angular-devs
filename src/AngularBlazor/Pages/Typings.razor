@@ -81,15 +81,16 @@ Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");
     <MudTabPanel Text="Use case in action">
         <MudAlert Severity="Severity.Info">This example is written in Blazor!</MudAlert>
         <MudCard>
-            <MudCardHeader>
-                <CardHeaderContent>
-                    Result
-                </CardHeaderContent>
-            </MudCardHeader>
             <MudCardContent>
+                <h3>Typed objext</h3>
                 <MudText Inline="true">Hello </MudText>
                 <MudText Inline="true" Color="Color.Primary">@_examplePerson.FirstName</MudText> (Field FirstName)
                 <MudText Inline="true" Color="Color.Info">@_examplePerson.LastName</MudText> (Field LastName)
+                <br>
+                <MudDivider />
+                <br>
+                <h3>Expando object</h3>
+                <MudText Color="Color.Secondary">@_expandoPerson.FirstName @_expandoPerson.LastName</MudText>
             </MudCardContent>
         </MudCard>
 
