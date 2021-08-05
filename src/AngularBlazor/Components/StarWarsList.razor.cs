@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using AngularBlazor.Models;
@@ -13,8 +14,8 @@ namespace AngularBlazor.Components
 
         private async void LoadAllMovies()
         {
-            var result = await _httpClient.GetFromJsonAsync<MovieResult>("https://swapi.dev/api/films/");
-            Movies = result?.Results;
+            var result = await _httpClient.GetFromJsonAsync<MovieResult>("https://www.swapi.tech/api/films/");
+            Movies = result?.Result.Select(movieItem => movieItem.Properties).ToList();
             StateHasChanged();
         }
     }

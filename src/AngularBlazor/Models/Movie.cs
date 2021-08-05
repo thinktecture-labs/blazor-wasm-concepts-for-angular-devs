@@ -7,7 +7,12 @@ namespace AngularBlazor.Models
 {
     public class MovieResult
     {
-        public List<Movie> Results { get; set; }
+        public List<MovieResultItem> Result { get; set; }
+    }
+
+    public class MovieResultItem
+    {
+        public Movie Properties { get; set; }
     }
 
     public class Movie

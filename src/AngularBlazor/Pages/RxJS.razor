@@ -20,12 +20,12 @@ class MyComponent {
     private readonly url = 'https://swapi.dev/api/films/';
 
     constructor(private readonly httpClient: HttpClient) {
-        // Use subscribe to asign list
+        // Use subscribe to assign list
         @("this.httpClient.get<MovieResult>(this.url)");
             .subscribe(result => this.movies = result.Results);
 
         // Only assign observable and use async pipe
-        this.movies$ =  @("this.httpClient.get<MovieResult>(this.url)");
+        this.movies$ = @("this.httpClient.get<MovieResult>(this.url)");
             .pipe(map(result => result.results));
     }
 }</code>
