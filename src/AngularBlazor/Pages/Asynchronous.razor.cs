@@ -1,6 +1,6 @@
 namespace AngularBlazor.Pages
 {
-    public partial class RxJS
+    public partial class Asynchronous
     {
         
     }
