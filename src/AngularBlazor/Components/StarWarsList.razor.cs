@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace AngularBlazor.Components
 {
-    public partial class StarWarsList
+    public partial class StarWarsList: ComponentBase
     {
         [Inject] private HttpClient _httpClient { get; set; }
         private List<Movie> Movies { get; set; } = new();
