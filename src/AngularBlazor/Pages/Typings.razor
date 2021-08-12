@@ -64,8 +64,8 @@ dynamc firstPerson = new ExpandoObject();
 firstPerson.FirstName = "Leia";
 firstPersion.LastName = "Organa";
 
-@("((IDictionary<String, Object>) data)[\"FirstName\"] = \"Han\";")
-@("((IDictionary<String, Object>) data)[\"LastName\"] = \"Solo\";")
+@("((IDictionary<String, Object>) firstPerson)[\"FirstName\"] = \"Han\";")
+@("((IDictionary<String, Object>) firstPerson)[\"LastName\"] = \"Solo\";")
 
 // Ouput = Hello Han Solo
 Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");
@@ -82,7 +82,7 @@ Console.WriteLine($"Hello {firstPerson.FirstName} {firstPerson.LastName}");
         <MudAlert Severity="Severity.Info">This example is written in Blazor!</MudAlert>
         <MudCard>
             <MudCardContent>
-                <h3>Typed objext</h3>
+                <h3>Typed object</h3>
                 <MudText Inline="true">Hello </MudText>
                 <MudText Inline="true" Color="Color.Primary">@_examplePerson.FirstName</MudText> (Field FirstName)
                 <MudText Inline="true" Color="Color.Info">@_examplePerson.LastName</MudText> (Field LastName)

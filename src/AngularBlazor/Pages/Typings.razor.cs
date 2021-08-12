@@ -32,6 +32,7 @@ namespace AngularBlazor.Pages
             _expandoPerson = new ExpandoObject();
             _expandoPerson.FirstName = "Luke";
             _expandoPerson.LastName = "Skywalker";
+            _expandoPerson.Vehicle = "X-Wing";
         }
 
         private void ChangeFieldValue()
