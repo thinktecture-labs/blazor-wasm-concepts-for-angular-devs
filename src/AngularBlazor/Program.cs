@@ -14,7 +14,7 @@ namespace AngularBlazor
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient());
-            builder.Services.AddMudBlazorResizeListener();
+            builder.Services.AddMudServices();
 
             await builder.Build().RunAsync();
         }

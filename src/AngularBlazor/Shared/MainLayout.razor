@@ -4,9 +4,9 @@
 
 <MudLayout>
     <MudAppBar Elevation="1">
-        <MudIconButton Icon="@Icons.Material.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())"/>
-        <MudAppBarSpacer/>
-        <MudIconButton Icon="@Icons.Material.MoreVert" Color="Color.Inherit" Edge="Edge.End"/>
+        <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())"/>
+        <MudSpacer/>
+        <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" Edge="Edge.End"/>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="2">
         <MudDrawerHeader Class="logo-container">

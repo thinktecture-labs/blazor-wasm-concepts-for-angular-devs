@@ -3,6 +3,6 @@
 <MudList>
     @foreach (var movie in Movies.OrderBy(m => m.Episode))
     {
-        <MudListItem Icon="@Icons.Material.Movie">Episode @movie.Episode - @movie.Title released in @movie.ReleaseDate.ToShortDateString()</MudListItem>
+        <MudListItem Icon="@Icons.Material.Outlined.Movie">Episode @movie.Episode - @movie.Title released in @movie.ReleaseDate.ToShortDateString()</MudListItem>
     }
 </MudList>
